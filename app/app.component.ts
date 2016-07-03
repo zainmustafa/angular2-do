@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     '<form role="form">'+
         '<input type="text" class="form-control" placeholder="Your Task" name="task" [(ngModel)]="data">'+
     '</form>'+
-    '<button type="button" class="btn btn btn-primary" >Add</button>'+
+    '<button type="button" (click)="add()" class="btn btn btn-primary" >Add</button>'+
         '</div>'+
         '<div id="list">'+
     '<ul>'+
@@ -18,9 +18,15 @@ import { Component } from '@angular/core';
     '</div>'
 })
 export class AppComponent {
+    protected data: any = ''
     protected todoList : Array<any> = ['Pakistan', 'India', "Bangladesh"];
     
     protected remove = function (i:number) {
         this.todoList.splice(i,1);
+    }
+    protected add = function () {
+        debugger;
+        this.todoList.push(this.data);
+        this.data = '';
     }
 }

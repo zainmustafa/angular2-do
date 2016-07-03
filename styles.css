@@ -11,8 +11,18 @@ form {
 }
 
 a.close {
-  float: right;
-}z
+  float: none;
+  margin-left: 15px;
+}
+
+#list ul {
+  text-align: center;
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0; 
+}
+
 
 /* everywhere else */
 * { 

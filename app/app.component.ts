@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
     template: '<div class="form-group">' +
       '<h1>To-Do <small>List</small></h1>' +
     '<form role="form">'+
-        '<input type="text" class="form-control" placeholder="Your Task" name="task" [(ngModel)]="data">'+
+        '<input type="text" class="form-control" (keyup)="add($event)" placeholder="Your Task" name="task" [(ngModel)]="data">'+
     '</form>'+
-    '<button type="button" (click)="add()" class="btn btn btn-primary" >Add</button>'+
+    '<button type="button" (click)="add(true)" class="btn btn btn-primary" >Add</button>'+
         '</div>'+
         '<div id="list">'+
     '<ul>'+
@@ -24,9 +24,10 @@ export class AppComponent {
     protected remove = function (i:number) {
         this.todoList.splice(i,1);
     }
-    protected add = function () {
-        debugger;
-        this.todoList.push(this.data);
-        this.data = '';
+    protected add = function (data:any) {
+        if(data.keyCode == 13 || data === true){
+            this.todoList.push(this.data);
+            this.data = '';
+        }        
     }
 }

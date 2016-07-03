@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     protected data: any = ''
-    protected todoList : Array<any> = ['Pakistan', 'India', "Bangladesh"];
+    protected todoList : Array<any> = [];
     
     protected remove = function (i:number) {
         this.todoList.splice(i,1);

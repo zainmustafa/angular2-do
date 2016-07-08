@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
         '</div>'+
         '<div id="list">'+
     '<ul>'+
-        '<li *ngFor="let todo of todoList let i=index"> {{todo}} '+ 
+        '<li *ngFor="let todo of todoList let i=index"> {{todo}} '+
             '<a href="#" class="close" aria-hidden="true" (click)="remove(i)">×</a>'+
         ' </li>'+
     '</ul>'+
@@ -20,14 +20,14 @@ import { Component } from '@angular/core';
 export class AppForm {
     protected data: any = ''
     protected todoList : Array<any> = [];
-    
+
     protected remove = function (i:number) {
         this.todoList.splice(i,1);
     }
     protected add = function (data:any) {
-        if(data.keyCode == 13 || data === true){
+        if((data.keyCode == 13 || data === true) && this.data != ''){
             this.todoList.push(this.data);
             this.data = '';
-        }        
+        }
     }
 }
